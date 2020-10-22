@@ -20,6 +20,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
+    #ここでテストしたいときもある
     follow_redirect!
     assert_template 'users/show'
   end
