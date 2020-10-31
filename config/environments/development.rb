@@ -36,21 +36,15 @@ Rails.application.configure do
   # ここをコピペすると失敗します。
   #自分の環境のホストに変えてください。
   # クラウドIDEの場合は以下をお使いください
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'umi-railstutorial.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
-  }
 
+  config.action_mailer.raise_delivery_errors = false
 
+  host = 'https://e8529f347a594cbea8d2b177bc229f86.vfs.cloud9.ap-northeast-1.amazonaws.com'
+  # ここをコピペすると失敗します。自分の環境のホストに変えてください。
+  # クラウドIDEの場合は以下をお使いください
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  # localhostで開発している場合は以下をお使いください
+  # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   config.action_mailer.perform_caching = false
 
