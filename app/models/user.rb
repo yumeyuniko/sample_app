@@ -84,6 +84,13 @@ class User < ApplicationRecord
   end
   
   
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Micropost.where("user_id = ?", self.id)
+  end
+  
+  
   private
 
     # メールアドレスをすべて小文字にする
